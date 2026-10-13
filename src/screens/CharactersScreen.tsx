@@ -1,72 +1,162 @@
 // src/screens/CharactersScreen.tsx
-import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, FlatList, Image, ActivityIndicator } from 'react-native';
-import CryptoJS from 'crypto-js';
-import { MarvelApiResponse, MarvelCharacter } from '../models/MarvelAPI';
+import React, { useEffect, useState, useRef } from 'react';
+import {
+    View,
+    Text,
+    StyleSheet,
+    FlatList,
+    Image,
+    TouchableOpacity,
+    TextInput,
+    Animated,
+    RefreshControl
+} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { ComicVineResponse, ComicVineCharacter } from '../models/ComicVineApi';
+import { NavigationProps } from '../navigation/types';
 
-// IMPORTANT: Insert your actual keys from developer.marvel.com
-const PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
-const PRIVATE_KEY = 'YOUR_PRIVATE_KEY';
+const API_KEY = 'ed1d819b62a4d6d9e4de1e727cae1b366fc3e655'; // Ensure your actual key is here
 
-export default function CharactersScreen(): React.JSX.Element {
-    const [characters, setCharacters] = useState<MarvelCharacter[]>([]);
-    const [loading, setLoading] = useState<boolean>(true);
+// --- UI Polish: Pulsing Skeleton Card ---
+const SkeletonCard = (): React.JSX.Element => {
+    const opacity = useRef(new Animated.Value(0.3)).current;
 
     useEffect(() => {
-        fetchCharacters();
+        Animated.loop(
+            Animated.sequence([
+                Animated.timing(opacity, { toValue: 1, duration: 800, useNativeDriver: true }),
+                Animated.timing(opacity, { toValue: 0.3, duration: 800, useNativeDriver: true })
+            ])
+        ).start();
+    }, [opacity]);
+
+    return (
+        <Animated.View style={[styles.card, { opacity }]}>
+            <View style={styles.thumbnailPlaceholder} />
+            <View style={styles.infoContainer}>
+                <View style={styles.skeletonTitle} />
+                <View style={styles.skeletonLine} />
+                <View style={styles.skeletonLineShort} />
+            </View>
+        </Animated.View>
+    );
+};
+
+export default function CharactersScreen(): React.JSX.Element {
+    const navigation = useNavigation<NavigationProps>();
+    const [characters, setCharacters] = useState<ComicVineCharacter[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [refreshing, setRefreshing] = useState<boolean>(false);
+    const [searchQuery, setSearchQuery] = useState<string>('');
+
+    useEffect(() => {
+        void fetchCharacters('Avengers');
     }, []);
 
-    const fetchCharacters = async () => {
+    const fetchCharacters = async (query: string, isRefresh = false): Promise<void> => {
+        if (!query) return;
+
+        if (isRefresh) setRefreshing(true);
+        else setLoading(true);
+
         try {
-            const ts = new Date().getTime().toString();
-            const hash = CryptoJS.MD5(ts + PRIVATE_KEY + PUBLIC_KEY).toString();
+            const url = `https://comicvine.gamespot.com/api/search/?api_key=${API_KEY}&format=json&limit=50&resources=character&query=${encodeURIComponent(query)}`;
 
-            const url = `https://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}&limit=20`;
+            const response = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    'User-Agent': 'MarvelCrossPlatformApp_Development_v1.0',
+                    'Accept': 'application/json'
+                }
+            });
 
-            const response = await fetch(url);
-            const json: MarvelApiResponse<MarvelCharacter> = await response.json();
+            const json: ComicVineResponse<ComicVineCharacter> = await response.json();
 
-            setCharacters(json.data.results);
+            if (json.error === 'OK') {
+                setCharacters(json.results);
+            } else {
+                console.error("API Error:", json.error);
+            }
         } catch (error) {
             console.error("Error fetching characters:", error);
         } finally {
             setLoading(false);
+            setRefreshing(false);
         }
     };
 
-    const renderItem = ({ item }: { item: MarvelCharacter }) => {
-        // Marvel API HTTP image URLs need to be converted to HTTPS for iOS ATS compliance
-        const imageUrl = `${item.thumbnail.path}.${item.thumbnail.extension}`.replace('http:', 'https:');
+    const handleSearchSubmit = () => {
+        if (searchQuery.trim().length > 0) {
+            void fetchCharacters(searchQuery.trim());
+        }
+    };
+
+    const onRefresh = () => {
+        // If the search bar has text, refresh that search; otherwise, refresh the default
+        void fetchCharacters(searchQuery.trim() || 'Avengers', true);
+    };
+
+    const renderItem = ({ item }: { item: ComicVineCharacter }) => {
+        const imageUrl = item.image?.medium_url || 'https://via.placeholder.com/100x120?text=No+Image';
 
         return (
-            <View style={styles.card}>
+            <TouchableOpacity
+                style={styles.card}
+                activeOpacity={0.7}
+                onPress={() => navigation.navigate('CharacterDetails', { character: item })}
+            >
                 <Image source={{ uri: imageUrl }} style={styles.thumbnail} />
                 <View style={styles.infoContainer}>
                     <Text style={styles.nameText}>{item.name}</Text>
                     <Text style={styles.descriptionText} numberOfLines={3}>
-                        {item.description || 'No description available in the archive.'}
+                        {item.deck || 'No summary available in the archive.'}
                     </Text>
                 </View>
-            </View>
+            </TouchableOpacity>
         );
     };
 
-    if (loading) {
-        return (
-            <View style={styles.centerContainer}>
-                <ActivityIndicator size="large" color="#E23636" />
-            </View>
-        );
-    }
-
     return (
         <View style={styles.container}>
-            <FlatList
-                data={characters}
-                keyExtractor={(item) => item.id.toString()}
-                renderItem={renderItem}
-                contentContainerStyle={styles.listContent}
-            />
+            <View style={styles.searchContainer}>
+                <TextInput
+                    style={styles.searchInput}
+                    placeholder="Search for a hero (e.g., Spider-Man)..."
+                    placeholderTextColor="#999"
+                    value={searchQuery}
+                    onChangeText={setSearchQuery}
+                    onSubmitEditing={handleSearchSubmit}
+                    returnKeyType="search"
+                    autoCorrect={false}
+                />
+            </View>
+
+            {loading ? (
+                <View style={styles.listContent}>
+                    {/* Render 5 skeleton cards to fill the initial screen */}
+                    {[1, 2, 3, 4, 5].map((key) => (
+                        <SkeletonCard key={key} />
+                    ))}
+                </View>
+            ) : (
+                <FlatList
+                    data={characters}
+                    keyExtractor={(item) => item.id.toString()}
+                    renderItem={renderItem}
+                    contentContainerStyle={styles.listContent}
+                    refreshControl={
+                        <RefreshControl
+                            refreshing={refreshing}
+                            onRefresh={onRefresh}
+                            tintColor="#E23636" // iOS spinner color
+                            colors={["#E23636"]} // Android spinner color
+                        />
+                    }
+                    ListEmptyComponent={
+                        <Text style={styles.emptyText}>No heroes found in the database.</Text>
+                    }
+                />
+            )}
         </View>
     );
 }
@@ -76,11 +166,17 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#F2F2F2',
     },
-    centerContainer: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F2F2F2',
+    searchContainer: {
+        padding: 16,
+        backgroundColor: '#E23636',
+    },
+    searchInput: {
+        backgroundColor: '#FFFFFF',
+        borderRadius: 8,
+        paddingHorizontal: 16,
+        paddingVertical: 12,
+        fontSize: 16,
+        color: '#202020',
     },
     listContent: {
         padding: 16,
@@ -118,4 +214,36 @@ const styles = StyleSheet.create({
         color: '#666666',
         lineHeight: 20,
     },
+    emptyText: {
+        textAlign: 'center',
+        color: '#666666',
+        marginTop: 40,
+        fontSize: 16,
+    },
+    // Skeleton Styles
+    thumbnailPlaceholder: {
+        width: 100,
+        height: 120,
+        backgroundColor: '#E0E0E0',
+    },
+    skeletonTitle: {
+        width: '60%',
+        height: 20,
+        backgroundColor: '#E0E0E0',
+        borderRadius: 4,
+        marginBottom: 12,
+    },
+    skeletonLine: {
+        width: '90%',
+        height: 14,
+        backgroundColor: '#E0E0E0',
+        borderRadius: 4,
+        marginBottom: 8,
+    },
+    skeletonLineShort: {
+        width: '70%',
+        height: 14,
+        backgroundColor: '#E0E0E0',
+        borderRadius: 4,
+    }
 });
