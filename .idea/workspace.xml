@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57da1a59-c06e-44e2-88ff-a8eac3646db5" name="Changes" comment="added search, animations etc">
+    <list default="true" id="57da1a59-c06e-44e2-88ff-a8eac3646db5" name="Changes" comment="!!!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,7 +79,7 @@
       <option name="presentableId" value="Default" />
       <updated>1791879491235</updated>
       <workItem from="1791879491729" duration="10000" />
-      <workItem from="1791879597981" duration="12067000" />
+      <workItem from="1791879597981" duration="13229000" />
     </task>
     <task id="LOCAL-00001" summary="FIRST TRY BABY!">
       <option name="closed" value="true" />
@@ -105,7 +105,15 @@
       <option name="project" value="LOCAL" />
       <updated>1791892024639</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="!!!">
+      <option name="closed" value="true" />
+      <created>1791899897850</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1791899897850</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -115,6 +123,7 @@
     <MESSAGE value="FIRST TRY BABY!" />
     <MESSAGE value="implementing api key" />
     <MESSAGE value="added search, animations etc" />
-    <option name="LAST_COMMIT_MESSAGE" value="added search, animations etc" />
+    <MESSAGE value="!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="!!!" />
   </component>
 </project>
