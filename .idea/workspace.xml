@@ -4,19 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57da1a59-c06e-44e2-88ff-a8eac3646db5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/MarvelApi.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/navigation/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/CharactersScreen.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/HomeScreen.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/ProfileScreen.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/SignUpScreen.tsx" afterDir="false" />
+    <list default="true" id="57da1a59-c06e-44e2-88ff-a8eac3646db5" name="Changes" comment="FIRST TRY BABY!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/CharactersScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/CharactersScreen.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +27,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Rhapthorn"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Rhapthorn/MarvelApp.git",
+    "accountId": "d1ce13b7-3a88-406d-9495-6036053403a9"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 7
@@ -78,11 +83,24 @@
       <option name="presentableId" value="Default" />
       <updated>1791879491235</updated>
       <workItem from="1791879491729" duration="10000" />
-      <workItem from="1791879597981" duration="1572000" />
+      <workItem from="1791879597981" duration="7646000" />
     </task>
+    <task id="LOCAL-00001" summary="FIRST TRY BABY!">
+      <option name="closed" value="true" />
+      <created>1791881202183</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1791881202183</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="FIRST TRY BABY!" />
+    <option name="LAST_COMMIT_MESSAGE" value="FIRST TRY BABY!" />
   </component>
 </project>
