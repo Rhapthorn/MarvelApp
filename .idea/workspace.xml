@@ -4,18 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57da1a59-c06e-44e2-88ff-a8eac3646db5" name="Changes" comment="implementing api key">
-      <change afterPath="$PROJECT_DIR$/src/models/ComicVineApi.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/CharacterDetailsScreen.tsx" afterDir="false" />
+    <list default="true" id="57da1a59-c06e-44e2-88ff-a8eac3646db5" name="Changes" comment="added search, animations etc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/MarvelApi.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/navigation/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/CharactersScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/CharactersScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/ProfileScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/ProfileScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/SignUpScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/SignUpScreen.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +79,7 @@
       <option name="presentableId" value="Default" />
       <updated>1791879491235</updated>
       <workItem from="1791879491729" duration="10000" />
-      <workItem from="1791879597981" duration="10000000" />
+      <workItem from="1791879597981" duration="12067000" />
     </task>
     <task id="LOCAL-00001" summary="FIRST TRY BABY!">
       <option name="closed" value="true" />
@@ -107,7 +97,15 @@
       <option name="project" value="LOCAL" />
       <updated>1791889657110</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added search, animations etc">
+      <option name="closed" value="true" />
+      <created>1791892024639</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1791892024639</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,6 +114,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="FIRST TRY BABY!" />
     <MESSAGE value="implementing api key" />
-    <option name="LAST_COMMIT_MESSAGE" value="implementing api key" />
+    <MESSAGE value="added search, animations etc" />
+    <option name="LAST_COMMIT_MESSAGE" value="added search, animations etc" />
   </component>
 </project>
