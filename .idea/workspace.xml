@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57da1a59-c06e-44e2-88ff-a8eac3646db5" name="Changes" comment="!!!">
-      <change afterPath="$PROJECT_DIR$/src/screens/MediaArchivesScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/ComicVineApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/ComicVineApi.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/navigation/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/navigation/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/CharacterDetailsScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/CharacterDetailsScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/CharactersScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/CharactersScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/HomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/HomeScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/ProfileScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/ProfileScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/SignUpScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/SignUpScreen.tsx" afterDir="false" />
-    </list>
+    <list default="true" id="57da1a59-c06e-44e2-88ff-a8eac3646db5" name="Changes" comment="dark mode, media archive screen" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,23 +39,23 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.5017148586415265" />
-      <entry key="MS500" value="3.453897703065379" />
-      <entry key="S2" value="7.856508062334623" />
-      <entry key="S5" value="11.484647786546201" />
-      <entry key="S10" value="13.439196992719548" />
-      <entry key="S30" value="15.085591598315427" />
-      <entry key="S60" value="16.019216057458927" />
-      <entry key="M2" value="18.299662530524483" />
-      <entry key="M5" value="22.761673669621743" />
-      <entry key="M10" value="27.234422299505344" />
-      <entry key="M15" value="32.53004503986689" />
-      <entry key="M30" value="51.31086365675591" />
-      <entry key="H1" value="80.14758983454834" />
-      <entry key="H2" value="107.91039562673187" />
-      <entry key="H4" value="127.67432229910274" />
-      <entry key="D1" value="148.3250043096574" />
-      <entry key="W1" value="152.32000785544852" />
+      <entry key="MS100" value="1.0002563654094" />
+      <entry key="MS500" value="1.2532477369169892" />
+      <entry key="S2" value="3.022172176905302" />
+      <entry key="S5" value="4.863402149411964" />
+      <entry key="S10" value="6.080623904754391" />
+      <entry key="S30" value="7.253993381352614" />
+      <entry key="S60" value="7.684019467331323" />
+      <entry key="M2" value="9.03572052020587" />
+      <entry key="M5" value="15.660474883515615" />
+      <entry key="M10" value="23.841866444645607" />
+      <entry key="M15" value="30.67938748408137" />
+      <entry key="M30" value="50.85523565385761" />
+      <entry key="H1" value="81.25142918169605" />
+      <entry key="H2" value="111.1648863939774" />
+      <entry key="H4" value="132.83578734216138" />
+      <entry key="D1" value="155.77028541626726" />
+      <entry key="W1" value="160.23849836637552" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -91,23 +77,23 @@
       <entry key="W1" value="0.0" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.3701534525164154" />
-      <entry key="MS500" value="3.2811125725050636" />
-      <entry key="S2" value="7.719163073233033" />
-      <entry key="S5" value="11.398405493528358" />
-      <entry key="S10" value="13.387938289633462" />
-      <entry key="S30" value="15.066269101718996" />
-      <entry key="S60" value="16.008887880921602" />
-      <entry key="M2" value="18.29364692141073" />
-      <entry key="M5" value="22.758586326201176" />
-      <entry key="M10" value="27.232455676872252" />
-      <entry key="M15" value="32.52835657040894" />
-      <entry key="M30" value="51.30938753225135" />
-      <entry key="H1" value="80.14640868265309" />
-      <entry key="H2" value="107.9096034680778" />
-      <entry key="H4" value="127.67385654610901" />
-      <entry key="D1" value="148.32491477002478" />
-      <entry key="W1" value="152.3199947378753" />
+      <entry key="MS100" value="0.9268289224008133" />
+      <entry key="MS500" value="1.2318432235169978" />
+      <entry key="S2" value="2.9823424101178753" />
+      <entry key="S5" value="4.832280106191757" />
+      <entry key="S10" value="6.0608248490284975" />
+      <entry key="S30" value="7.24619164034072" />
+      <entry key="S60" value="7.679901169776412" />
+      <entry key="M2" value="9.033234729254216" />
+      <entry key="M5" value="15.658582017440423" />
+      <entry key="M10" value="23.840296285652713" />
+      <entry key="M15" value="30.677926312538958" />
+      <entry key="M30" value="50.85386088978986" />
+      <entry key="H1" value="81.25027875669018" />
+      <entry key="H2" value="111.16409363210428" />
+      <entry key="H4" value="132.83531422736104" />
+      <entry key="D1" value="155.77019325912832" />
+      <entry key="W1" value="160.23848483406388" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -158,7 +144,7 @@
       <workItem from="1791879491729" duration="10000" />
       <workItem from="1791879597981" duration="13229000" />
       <workItem from="1791905342435" duration="2244000" />
-      <workItem from="1792477109292" duration="7664000" />
+      <workItem from="1792477109292" duration="7760000" />
     </task>
     <task id="LOCAL-00001" summary="FIRST TRY BABY!">
       <option name="closed" value="true" />
@@ -192,7 +178,15 @@
       <option name="project" value="LOCAL" />
       <updated>1791899897850</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="dark mode, media archive screen">
+      <option name="closed" value="true" />
+      <created>1792485351860</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1792485351860</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,6 +197,7 @@
     <MESSAGE value="implementing api key" />
     <MESSAGE value="added search, animations etc" />
     <MESSAGE value="!!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="!!!" />
+    <MESSAGE value="dark mode, media archive screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="dark mode, media archive screen" />
   </component>
 </project>
