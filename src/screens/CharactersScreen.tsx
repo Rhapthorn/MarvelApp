@@ -16,7 +16,6 @@ import {useNavigation} from '@react-navigation/native';
 import {ComicVineCharacter, ComicVineResponse} from '../models/ComicVineApi';
 import {NavigationProps} from '../navigation/types';
 
-// IMPORTANT: Insert your actual Comic Vine API key here
 const API_KEY = 'ed1d819b62a4d6d9e4de1e727cae1b366fc3e655';
 
 const SkeletonCard = ({isDark}: { isDark: boolean }): React.JSX.Element => {

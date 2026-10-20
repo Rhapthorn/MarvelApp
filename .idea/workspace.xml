@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57da1a59-c06e-44e2-88ff-a8eac3646db5" name="Changes" comment="dark mode, media archive screen" />
+    <list default="true" id="57da1a59-c06e-44e2-88ff-a8eac3646db5" name="Changes" comment="dark mode, media archive screen">
+      <change beforePath="$PROJECT_DIR$/src/screens/CharactersScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/CharactersScreen.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -144,7 +146,7 @@
       <workItem from="1791879491729" duration="10000" />
       <workItem from="1791879597981" duration="13229000" />
       <workItem from="1791905342435" duration="2244000" />
-      <workItem from="1792477109292" duration="7760000" />
+      <workItem from="1792477109292" duration="8061000" />
     </task>
     <task id="LOCAL-00001" summary="FIRST TRY BABY!">
       <option name="closed" value="true" />
@@ -186,7 +188,15 @@
       <option name="project" value="LOCAL" />
       <updated>1792485351860</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="dark mode, media archive screen">
+      <option name="closed" value="true" />
+      <created>1792485430171</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1792485430171</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
