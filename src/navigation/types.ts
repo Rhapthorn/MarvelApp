@@ -1,6 +1,6 @@
 // src/navigation/types.ts
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { ComicVineCharacter } from '../models/ComicVineApi';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {ComicVineCharacter} from '../models/ComicVineApi';
 
 export type RootStackParamList = {
     Home: undefined;
@@ -8,6 +8,7 @@ export type RootStackParamList = {
     CharacterDetails: { character: ComicVineCharacter };
     Profile: undefined;
     SignUp: undefined;
+    MediaArchives: { characterId: number; characterName: string };
 };
 
 export type NavigationProps = NativeStackNavigationProp<RootStackParamList>;

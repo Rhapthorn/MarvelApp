@@ -1,18 +1,19 @@
 // src/screens/SignUpScreen.tsx
 import React from 'react';
 import {
-    View,
+    KeyboardAvoidingView,
+    Platform,
+    ScrollView,
+    StyleSheet,
     Text,
     TextInput,
     TouchableOpacity,
-    StyleSheet,
-    KeyboardAvoidingView,
-    Platform,
-    ScrollView
+    useColorScheme,
+    View
 } from 'react-native';
-import { useForm, Controller } from 'react-hook-form';
-import { useNavigation } from '@react-navigation/native';
-import { NavigationProps } from '../navigation/types';
+import {Controller, useForm} from 'react-hook-form';
+import {useNavigation} from '@react-navigation/native';
+import {NavigationProps} from '../navigation/types';
 
 interface SignUpFormData {
     username: string;
@@ -22,11 +23,13 @@ interface SignUpFormData {
 
 export default function SignUpScreen(): React.JSX.Element {
     const navigation = useNavigation<NavigationProps>();
+    const isDark = useColorScheme() === 'dark';
+    const styles = getStyles(isDark);
 
     const {
         control,
         handleSubmit,
-        formState: { errors, isValid }
+        formState: {errors, isValid}
     } = useForm<SignUpFormData>({
         mode: 'onChange',
         defaultValues: {
@@ -38,7 +41,6 @@ export default function SignUpScreen(): React.JSX.Element {
 
     const onSubmit = (data: SignUpFormData) => {
         console.log('Valid Registration Data:', data);
-        // Future implementation: Send data to backend or local storage
         navigation.navigate('Home');
     };
 
@@ -58,17 +60,18 @@ export default function SignUpScreen(): React.JSX.Element {
                         name="username"
                         rules={{
                             required: 'Username is required',
-                            minLength: { value: 3, message: 'Must be at least 3 characters' }
+                            minLength: {value: 3, message: 'Must be at least 3 characters'}
                         }}
-                        render={({ field: { onChange, onBlur, value } }) => (
+                        render={({field: {onChange, onBlur, value}}) => (
                             <TextInput
                                 style={[styles.input, errors.username && styles.inputError]}
                                 onBlur={onBlur}
                                 onChangeText={onChange}
                                 value={value}
                                 placeholder="e.g., StarLord99"
-                                placeholderTextColor="#999"
+                                placeholderTextColor={isDark ? "#888" : "#999"}
                                 autoCapitalize="none"
+                                keyboardAppearance={isDark ? 'dark' : 'light'}
                             />
                         )}
                     />
@@ -87,16 +90,17 @@ export default function SignUpScreen(): React.JSX.Element {
                                 message: 'Invalid email address'
                             }
                         }}
-                        render={({ field: { onChange, onBlur, value } }) => (
+                        render={({field: {onChange, onBlur, value}}) => (
                             <TextInput
                                 style={[styles.input, errors.email && styles.inputError]}
                                 onBlur={onBlur}
                                 onChangeText={onChange}
                                 value={value}
                                 placeholder="peter@parker.com"
-                                placeholderTextColor="#999"
+                                placeholderTextColor={isDark ? "#888" : "#999"}
                                 keyboardType="email-address"
                                 autoCapitalize="none"
+                                keyboardAppearance={isDark ? 'dark' : 'light'}
                             />
                         )}
                     />
@@ -110,18 +114,19 @@ export default function SignUpScreen(): React.JSX.Element {
                         name="password"
                         rules={{
                             required: 'Password is required',
-                            minLength: { value: 8, message: 'Must be at least 8 characters' }
+                            minLength: {value: 8, message: 'Must be at least 8 characters'}
                         }}
-                        render={({ field: { onChange, onBlur, value } }) => (
+                        render={({field: {onChange, onBlur, value}}) => (
                             <TextInput
                                 style={[styles.input, errors.password && styles.inputError]}
                                 onBlur={onBlur}
                                 onChangeText={onChange}
                                 value={value}
                                 placeholder="••••••••"
-                                placeholderTextColor="#999"
+                                placeholderTextColor={isDark ? "#888" : "#999"}
                                 secureTextEntry
                                 autoCapitalize="none"
+                                keyboardAppearance={isDark ? 'dark' : 'light'}
                             />
                         )}
                     />
@@ -140,10 +145,10 @@ export default function SignUpScreen(): React.JSX.Element {
     );
 }
 
-const styles = StyleSheet.create({
+const getStyles = (isDark: boolean) => StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#F2F2F2',
+        backgroundColor: isDark ? '#121212' : '#F2F2F2',
     },
     scrollContent: {
         flexGrow: 1,
@@ -153,12 +158,12 @@ const styles = StyleSheet.create({
     header: {
         fontSize: 28,
         fontWeight: '900',
-        color: '#E23636',
+        color: isDark ? '#991B1B' : '#E23636',
         marginBottom: 8,
     },
     subtext: {
         fontSize: 16,
-        color: '#666',
+        color: isDark ? '#AAAAAA' : '#666',
         marginBottom: 32,
     },
     formGroup: {
@@ -167,17 +172,17 @@ const styles = StyleSheet.create({
     label: {
         fontSize: 14,
         fontWeight: '600',
-        color: '#333',
+        color: isDark ? '#FFFFFF' : '#333',
         marginBottom: 8,
     },
     input: {
-        backgroundColor: '#FFF',
+        backgroundColor: isDark ? '#1E1E1E' : '#FFF',
         borderWidth: 1,
-        borderColor: '#CCC',
+        borderColor: isDark ? '#333' : '#CCC',
         borderRadius: 8,
         padding: 14,
         fontSize: 16,
-        color: '#202020',
+        color: isDark ? '#FFFFFF' : '#202020',
     },
     inputError: {
         borderColor: '#E23636',
@@ -190,19 +195,19 @@ const styles = StyleSheet.create({
         fontWeight: '500',
     },
     submitButton: {
-        backgroundColor: '#E23636',
+        backgroundColor: isDark ? '#991B1B' : '#E23636',
         paddingVertical: 16,
         borderRadius: 8,
         alignItems: 'center',
         marginTop: 12,
         elevation: 3,
         shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.1,
+        shadowOffset: {width: 0, height: 2},
+        shadowOpacity: isDark ? 0.4 : 0.1,
         shadowRadius: 4,
     },
     submitButtonDisabled: {
-        backgroundColor: '#FFA0A0',
+        backgroundColor: isDark ? '#551111' : '#FFA0A0',
         elevation: 0,
         shadowOpacity: 0,
     },
@@ -210,5 +215,6 @@ const styles = StyleSheet.create({
         color: '#FFF',
         fontSize: 16,
         fontWeight: 'bold',
+        opacity: 1,
     },
 });

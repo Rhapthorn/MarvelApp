@@ -1,15 +1,16 @@
 // src/screens/ProfileScreen.tsx
-import React, { useState, useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import {
-    View,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    StyleSheet,
     Alert,
     KeyboardAvoidingView,
     Platform,
-    ScrollView
+    ScrollView,
+    StyleSheet,
+    Text,
+    TextInput,
+    TouchableOpacity,
+    useColorScheme,
+    View
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -17,8 +18,11 @@ export default function ProfileScreen(): React.JSX.Element {
     const [username, setUsername] = useState<string>('');
     const [favoriteHero, setFavoriteHero] = useState<string>('');
 
+    const isDark = useColorScheme() === 'dark';
+    const styles = getStyles(isDark);
+
     useEffect(() => {
-        loadProfileData();
+        void loadProfileData();
     }, []);
 
     const loadProfileData = async () => {
@@ -60,7 +64,8 @@ export default function ProfileScreen(): React.JSX.Element {
                         value={username}
                         onChangeText={setUsername}
                         placeholder="Enter your username"
-                        placeholderTextColor="#999"
+                        placeholderTextColor={isDark ? "#888" : "#999"}
+                        keyboardAppearance={isDark ? 'dark' : 'light'}
                     />
                 </View>
 
@@ -71,7 +76,8 @@ export default function ProfileScreen(): React.JSX.Element {
                         value={favoriteHero}
                         onChangeText={setFavoriteHero}
                         placeholder="e.g., Moon Knight"
-                        placeholderTextColor="#999"
+                        placeholderTextColor={isDark ? "#888" : "#999"}
+                        keyboardAppearance={isDark ? 'dark' : 'light'}
                     />
                 </View>
 
@@ -83,10 +89,10 @@ export default function ProfileScreen(): React.JSX.Element {
     );
 }
 
-const styles = StyleSheet.create({
+const getStyles = (isDark: boolean) => StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#F2F2F2',
+        backgroundColor: isDark ? '#121212' : '#F2F2F2',
     },
     scrollContent: {
         flexGrow: 1,
@@ -96,12 +102,12 @@ const styles = StyleSheet.create({
     header: {
         fontSize: 28,
         fontWeight: '900',
-        color: '#E23636',
+        color: isDark ? '#991B1B' : '#E23636',
         marginBottom: 8,
     },
     subtext: {
         fontSize: 16,
-        color: '#666',
+        color: isDark ? '#AAAAAA' : '#666',
         marginBottom: 32,
     },
     formGroup: {
@@ -110,28 +116,28 @@ const styles = StyleSheet.create({
     label: {
         fontSize: 14,
         fontWeight: '600',
-        color: '#333',
+        color: isDark ? '#FFFFFF' : '#333',
         marginBottom: 8,
     },
     input: {
-        backgroundColor: '#FFF',
+        backgroundColor: isDark ? '#1E1E1E' : '#FFF',
         borderWidth: 1,
-        borderColor: '#CCC',
+        borderColor: isDark ? '#333' : '#CCC',
         borderRadius: 8,
         padding: 14,
         fontSize: 16,
-        color: '#202020',
+        color: isDark ? '#FFFFFF' : '#202020',
     },
     saveButton: {
-        backgroundColor: '#E23636',
+        backgroundColor: isDark ? '#991B1B' : '#E23636',
         paddingVertical: 16,
         borderRadius: 8,
         alignItems: 'center',
         marginTop: 12,
         elevation: 3,
         shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.1,
+        shadowOffset: {width: 0, height: 2},
+        shadowOpacity: isDark ? 0.4 : 0.1,
         shadowRadius: 4,
     },
     saveButtonText: {
